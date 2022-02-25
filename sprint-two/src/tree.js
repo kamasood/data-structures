@@ -15,14 +15,22 @@ treeMethods.addChild = function(value) {
 };
 
 treeMethods.contains = function(target) {
+  var isContained = false;
+
   if (this.value === target) {
-    return true;
-  } else {
+    return isContained = true;
+  }
+
+  if (this.children.length > 0) {
     for (var i = 0; i < this.children.length; i++) {
-      // this.contains(this.children[i]);
-      this.children[i].contains(target);
+      isContained = this.children[i].contains(target);
+      if (isContained) {
+        return true;
+      }
     }
   }
+
+  return isContained;
 };
 
 
