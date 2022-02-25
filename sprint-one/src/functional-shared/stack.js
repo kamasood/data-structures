@@ -17,7 +17,7 @@ var stackMethods = {
     var position = ++this.position;
     this[position] = value;
   },
-  pop: function(value) {
+  pop: function() {
     var position = this.position;
     if (position === 0) {
       return;
@@ -27,7 +27,7 @@ var stackMethods = {
     this.position--;
     return popped;
   },
-  size: function(value) {
+  size: function() {
     return this.position;
   }
 };
