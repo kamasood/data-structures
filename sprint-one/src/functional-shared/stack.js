@@ -1,8 +1,35 @@
 var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
+  var instance = {};
+  instance.position = 0;
+  // values storage by numerical key
+  var storage = {};
+
+  //extend instance by methods object
+  $.extend(instance, stackMethods);
+
+  return instance;
 };
 
-var stackMethods = {};
+var stackMethods = {
+  push: function(value) {
+    var position = ++this.position;
+    this[position] = value;
+  },
+  pop: function(value) {
+    var position = this.position;
+    if (position === 0) {
+      return;
+    }
+    var popped = this[position];
+    delete popped;
+    this.position--;
+    return popped;
+  },
+  size: function(value) {
+    return this.position;
+  }
+};
 
 
