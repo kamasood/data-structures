@@ -4,8 +4,7 @@ var Queue = function() {
   var instance = {};
   instance.front = 1;
   instance.back = 0;
-
-  var storage = {};
+  instance.storage = {};
 
   $.extend(instance, queueMethods);
 
@@ -15,7 +14,7 @@ var Queue = function() {
 var queueMethods = {
   enqueue: function(value) {
     var back = ++this.back;
-    this[back] = value;
+    this.storage[back] = value;
   },
   dequeue: function() {
     var front = this.front;
@@ -23,7 +22,7 @@ var queueMethods = {
     if (front > back) {
       return;
     }
-    var dq = this[front];
+    var dq = this.storage[front];
     delete dq;
     this.front++;
     return dq;

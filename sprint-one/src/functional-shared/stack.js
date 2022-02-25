@@ -3,8 +3,7 @@ var Stack = function() {
   // but try not not reference your old code in writing the new style.
   var instance = {};
   instance.position = 0;
-  // values storage by numerical key
-  var storage = {};
+  instance.storage = {};
 
   //extend instance by methods object
   $.extend(instance, stackMethods);
@@ -15,14 +14,14 @@ var Stack = function() {
 var stackMethods = {
   push: function(value) {
     var position = ++this.position;
-    this[position] = value;
+    this.storage[position] = value;
   },
   pop: function() {
     var position = this.position;
     if (position === 0) {
       return;
     }
-    var popped = this[position];
+    var popped = this.storage[position];
     delete popped;
     this.position--;
     return popped;
