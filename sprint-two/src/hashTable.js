@@ -1,5 +1,3 @@
-
-
 var HashTable = function() {
   this._limit = 8;
   this._storage = LimitedArray(this._limit);
@@ -15,9 +13,7 @@ HashTable.prototype.insert = function(k, v) {
   }
 
   arrayOfTuples = this._storage.get(index);
-
   var exists = false;
-
   arrayOfTuples.forEach(function(tuple) {
     if (tuple[0] === k) {
       tuple[1] = v;
@@ -29,8 +25,6 @@ HashTable.prototype.insert = function(k, v) {
   if (!exists) {
     arrayOfTuples.push(thisTuple);
   }
-
-  console.log(arrayOfTuples);
 };
 
 HashTable.prototype.retrieve = function(k) {
