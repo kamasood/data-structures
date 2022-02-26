@@ -1,9 +1,6 @@
 var LinkedList = function() {
   var list = {};
 
-  var storage = {}; // store
-  var length = 0;
-
   list.head = null;
   list.tail = null;
 
